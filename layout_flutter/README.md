@@ -74,3 +74,27 @@
 - /* soal 3 */ Dua item terakhir di baris judul adalah ikon bintang, set dengan warna merah, dan teks "41". Seluruh baris ada di dalam Container dan beri padding di sepanjang setiap tepinya sebesar 32 piksel. Kemudian ganti isi body text ‘Hello World' dengan variabel titleSection seperti berikut: 
 
     ![new_flutter](images/P1langkah4_2.png)
+
+### Praktikum 2: Implementasi button row
+**Langkah 1: Buat method Column _buildButtonColumn**
+- Bagian tombol berisi 3 kolom yang menggunakan tata letak yang sama—sebuah ikon di atas baris teks. Kolom pada baris ini diberi jarak yang sama, dan teks serta ikon diberi warna primer.
+
+  Karena kode untuk membangun setiap kolom hampir sama, buatlah metode pembantu pribadi bernama buildButtonColumn(), yang mempunyai parameter warna, Icon dan Text, sehingga dapat mengembalikan kolom dengan widgetnya sesuai dengan warna tertentu.
+
+  lib/main.dart (_buildButtonColumn)
+
+    ![new_flutter](images/P2langkah1.png)
+
+**Langkah 2: Buat widget buttonSection**
+- Bagian tombol berisi 3 kolom yang menggunakan tata letak yang sama—sebuah ikon di atas baris teks. Kolom pada baris ini diberi jarak yang sama, dan teks serta ikon diberi warna primer.
+
+  Karena kode untuk membangun setiap kolom hampir sama, buatlah metode pembantu pribadi bernama buildButtonColumn(), yang mempunyai parameter warna, Icon dan Text, sehingga dapat mengembalikan kolom dengan widgetnya sesuai dengan warna tertentu.
+
+  lib/main.dart (_buildButtonColumn)
+
+    ![new_flutter](images/P2langkah2.png)
+
+**Langkah 3: Tambah button section ke body**
+- Tambahkan variabel buttonSection ke dalam body seperti berikut:
+
+    ![new_flutter](images/P2langkah3.png)
