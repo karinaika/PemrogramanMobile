@@ -57,6 +57,19 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    // Praktikum 3: Text Section
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Gunung Panderman adalah sebuah gunung di Kota Batu, Jawa Timur, Indonesia, dengan puncak Basundara yang berketinggian 2.045 mdpl. '
+        '\nKetinggian: 2.045 m '
+        '\nKoordinat: 7°54′15″S 112°29′48″E / 7.9042°S 112.4967°E '
+        '\n\nNama : Karina Ika Indasa '
+        '\nNIM :2341760042',
+        softWrap: true, 
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter layout: KARINA IKA 2341760042',
       home: Scaffold(
@@ -65,8 +78,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            titleSection,   // dari kode kamu sebelumnya
-            buttonSection,  // tambahan Praktikum 2
+            titleSection,   // Praktikum 1
+            buttonSection,  // Praktikum 2
+            textSection,    // Praktikum 3
           ],
         ),
       ),
