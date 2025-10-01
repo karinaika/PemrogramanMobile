@@ -76,8 +76,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: Column(
+        body: ListView(
           children: [
+            Image.asset(
+              'images/panderman.jpeg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+              ),
             titleSection,   // Praktikum 1
             buttonSection,  // Praktikum 2
             textSection,    // Praktikum 3
