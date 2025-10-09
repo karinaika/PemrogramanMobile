@@ -132,3 +132,71 @@ Container(
 - **Run** aplikasi tersebut dengan tekan F5, maka hasilnya akan seperti berikut.
 
   ![new_flutter](images/P1langkah7.png)
+
+## 📝 Tugas Praktikum  
+**1️⃣ Selesaikan Praktikum tersebut, lalu dokumentasikan dan push ke repository Anda berupa screenshot hasil pekerjaan beserta penjelasannya di file `README.md`!**
+
+**2️⃣ Jelaskan maksud dari langkah 2 pada praktikum tersebut!**
+**Jawab:**
+
+  perintah 
+```bash
+flutter pub add auto_size_text
+```
+  berfungsi untuk menambahkan plugin dari pub.dev ke dalam proyek Flutter.
+  Perintah ini akan:
+   - Menambahkan dependensi auto_size_text pada file pubspec.yaml.
+   - Mengunduh library dari Pub.dev.
+   - Memungkinkan kita menggunakan fitur plugin tersebut dalam aplikasi Flutter.
+
+
+**3️⃣ Jelaskan maksud dari langkah 5 pada praktikum tersebut!**
+**Jawab:**
+
+  Langkah ini menambahkan:
+```dart
+final String text;
+const RedTextWidget({Key? key, required this.text}) : super(key: key);
+```
+  Tujuannya:
+  - final String text; → menampung nilai teks yang akan ditampilkan.
+  - required this.text → memastikan parameter text wajib diisi setiap kali RedTextWidget dipanggil.
+  Dengan begitu, widget RedTextWidget menjadi lebih fleksibel karena bisa menampilkan teks apa pun yang diberikan melalui parameter.
+
+**4️⃣ Pada langkah 6 terdapat dua widget yang ditambahkan, jelaskan fungsi dan perbedaannya!**
+**Jawab:**
+
+**RedTextWidget (dengan AutoSizeText)**  
+- Menampilkan teks dengan ukuran otomatis menyesuaikan lebar kontainer dan dibatasi 2 baris.  
+- Teks berwarna **merah**.  
+- Ukuran teks **menyesuaikan otomatis**.  
+- Menggunakan plugin `auto_size_text`.
+
+**Text biasa**  
+- Menampilkan teks statis dengan ukuran tetap.  
+- Teks berwarna **hitam (default)**.  
+- Ukuran teks **tidak berubah** meskipun ruangnya kecil.
+
+**Kesimpulan:**  
+`AutoSizeText` akan menyesuaikan ukuran teks agar tetap muat di dalam container, sedangkan `Text` biasa tidak menyesuaikan dan bisa terpotong jika ruang terlalu sempit.
+
+**5️⃣ Jelaskan maksud dari tiap parameter yang ada di dalam plugin `auto_size_text` berdasarkan tautan pada dokumentasi ini !**
+
+**Jawab:**
+
+```dart
+return AutoSizeText(
+  text,
+  style: const TextStyle(color: Colors.red, fontSize: 14),
+  maxLines: 2,
+  overflow: TextOverflow.ellipsis,
+);
+```
+
+- `text` Menentukan isi teks yang akan ditampilkan pada widget.
+- `style` Mengatur gaya tampilan teks seperti warna, ukuran, dan ketebalan.
+- `maxLines` Menentukan jumlah baris maksimal teks yang boleh ditampilkan.
+- `overflow` Mengatur bagaimana teks ditampilkan jika melebihi batas ruang.
+
+
+**6️⃣ Kumpulkan laporan praktikum Anda berupa link repository GitHub kepada dosen!**
