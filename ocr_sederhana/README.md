@@ -68,5 +68,20 @@ Tambahkan baris berikut di dalam tag <manifest>, sebelum <application>:
 
   ![new_flutter](images/langkah3.png)
 
+**Langkah 4: Buat Struktur Folder**
+- Di dalam folder lib/, buat struktur berikut:
+
+```css
+lib/
+├── main.dart
+└── screens/
+    ├── splash_screen.dart
+    ├── home_screen.dart
+    ├── scan_screen.dart
+    └── result_screen.dart
+```
+
+  ![new_flutter](images/langkah4.png)
+
 
 
