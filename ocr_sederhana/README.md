@@ -31,6 +31,16 @@ google mlkit text recognition.
 
 ---
 
+## 📝 Langkah Praktikum
+**4.1 Langkah 1: Buat Proyek baru**
+- Buka terminal, lalu jalankan:
 
-## 📝 Langkah Praktikum  
+```bash
+flutter  create  ocr_sederhana
+cd  ocr_sederhana
+```
+
+  ![new_flutter](images/langkah1.png)
+
+
 
