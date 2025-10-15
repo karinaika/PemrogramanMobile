@@ -32,7 +32,7 @@ google mlkit text recognition.
 ---
 
 ## 📝 Langkah Praktikum
-**4.1 Langkah 1: Buat Proyek baru**
+**Langkah 1: Buat Proyek baru**
 - Buka terminal, lalu jalankan:
 
 ```bash
@@ -42,5 +42,20 @@ cd  ocr_sederhana
 
   ![new_flutter](images/langkah1.png)
 
+**Langkah 2: Tambahkan Plugin**
+- Buka file pubspec.yaml, lalu tambahkan dependensi berikut di bawah bagian dependencies:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  google_mlkit_text_recognition: ^0.10.0
+  camera: ^0.10.5+5
+  path_provider: ^2.1.2
+  path: ^1.8.3
+```
+
+  ![new_flutter](images/langkah2.png)
+  ![new_flutter](images/langkah2_1.png)
 
 
