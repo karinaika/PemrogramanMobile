@@ -58,4 +58,15 @@ dependencies:
   ![new_flutter](images/langkah2.png)
   ![new_flutter](images/langkah2_1.png)
 
+**Langkah 3: Tambahkan Izin Kamera (Android)**
+- Buka file: android/app/src/main/AndroidManifest.xml
+Tambahkan baris berikut di dalam tag <manifest>, sebelum <application>:
+
+```xml
+<uses - permission  android:name =" android . permission . CAMERA "  / >
+```
+
+  ![new_flutter](images/langkah3.png)
+
+
 
