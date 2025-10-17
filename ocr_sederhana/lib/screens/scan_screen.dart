@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'result_screen.dart';
 
@@ -16,7 +15,7 @@ class ScanScreen extends StatefulWidget {
 }
 
 class _ScanScreenState extends State<ScanScreen> {
-  late CameraController _controller;
+  CameraController? _controller; // gunakan nullable agar aman
   late Future<void> _initializeControllerFuture;
 
   @override
@@ -25,23 +24,33 @@ class _ScanScreenState extends State<ScanScreen> {
     _initCamera();
   }
 
-  // Inisialisasi kamera
+  /// Inisialisasi kamera
   void _initCamera() async {
-    cameras = await availableCameras();
-    _controller = CameraController(cameras[0], ResolutionPreset.medium);
-    _initializeControllerFuture = _controller.initialize();
-    if (mounted) {
-      setState(() {});
+    try {
+      cameras = await availableCameras();
+      _controller = CameraController(
+        cameras.first,
+        ResolutionPreset.medium,
+      );
+
+      _initializeControllerFuture = _controller!.initialize();
+      await _initializeControllerFuture;
+
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      debugPrint('Error initializing camera: $e');
     }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
-  // Proses OCR dari file gambar
+  /// Proses OCR dari file gambar
   Future<String> _ocrFromFile(File imageFile) async {
     final inputImage = InputImage.fromFile(imageFile);
     final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
@@ -51,8 +60,10 @@ class _ScanScreenState extends State<ScanScreen> {
     return recognizedText.text;
   }
 
-  // Ambil foto dan proses hasil OCR
+  /// Ambil foto lalu pindah ke halaman hasil
   Future<void> _takePicture() async {
+    if (_controller == null) return;
+
     try {
       await _initializeControllerFuture;
 
@@ -65,11 +76,10 @@ class _ScanScreenState extends State<ScanScreen> {
         ),
       );
 
-      final XFile image = await _controller.takePicture();
+      final XFile image = await _controller!.takePicture();
       final ocrText = await _ocrFromFile(File(image.path));
 
       if (!mounted) return;
-
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -78,38 +88,53 @@ class _ScanScreenState extends State<ScanScreen> {
       );
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error saat mengambil/memproses foto: $e')),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Error: $e')));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!_controller.value.isInitialized) {
+    // Jika controller belum siap, tampilkan loading
+    if (_controller == null || !_controller!.value.isInitialized) {
       return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
       );
     }
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kamera OCR'),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple,
       ),
       body: Column(
         children: [
           Expanded(
             child: AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: CameraPreview(_controller),
+              aspectRatio: _controller!.value.aspectRatio,
+              child: CameraPreview(_controller!),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
               onPressed: _takePicture,
-              icon: const Icon(Icons.camera),
-              label: const Text('Ambil Foto & Scan'),
+              icon: const Icon(Icons.camera_alt, color: Colors.white),
+              label: const Text(
+                'Ambil Foto & Scan',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ],
