@@ -396,3 +396,13 @@ https://github.com/user-attachments/assets/92d0c2dd-0215-402d-a1d6-bb16fa906645
 ---
 
 ## 📝 UTS - Aplikasi OCR
+**Soal 1:	Modifikasi Struktur Navigasi dan Aliran (30 Poin)**
+- **1.Pengubahan Navigasi Home (15 Poin)**
+
+  ![UTS](images/UTS_1.jpg)
+
+- **2.Teks Utuh dan Navigasi Balik (15 Poin)**
+
+  ![UTS](images/UTS_2.jpg)
+
+  ![UTS](images/UTS_3.jpg)
