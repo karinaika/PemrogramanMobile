@@ -415,3 +415,16 @@ https://github.com/user-attachments/assets/92d0c2dd-0215-402d-a1d6-bb16fa906645
 - **2.Spesifikasi Pesan Error (20 Poin)**
 
   ![UTS](images/UTS_5.jpg)
+
+**Soal 3:	Implementasi Plugin Text-to-Speech (TTS) (30 Poin)**
+- **1.Instalasi Plugin (5 Poin):**
+
+  ![UTS](images/UTS_6.jpg)
+
+- **2.Konversi Widget dan Inisialisasi (10 Poin)**
+
+  ![UTS](images/UTS_7.jpg)
+
+- **3.Fungsionalitas Pembacaan (15 Poin)**
+
+  ![UTS](images/UTS_8.jpg)
