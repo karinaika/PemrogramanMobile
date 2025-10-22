@@ -406,3 +406,12 @@ https://github.com/user-attachments/assets/92d0c2dd-0215-402d-a1d6-bb16fa906645
   ![UTS](images/UTS_2.jpg)
 
   ![UTS](images/UTS_3.jpg)
+
+**Soal 2:	Penyesuaian Tampilan dan Penanganan State/Error (40 Poin)**
+- **1.Custom Loading Screen di ScanScreen (20 Poin):**
+
+  ![UTS](images/UTS_4.jpg)
+
+- **2.Spesifikasi Pesan Error (20 Poin)**
+
+  ![UTS](images/UTS_5.jpg)
