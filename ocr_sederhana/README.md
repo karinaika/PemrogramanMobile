@@ -393,6 +393,6 @@ class ResultScreen extends StatelessWidget {
 
 https://github.com/user-attachments/assets/92d0c2dd-0215-402d-a1d6-bb16fa906645
 
+---
 
-
-  
+## 📝 UTS - Aplikasi OCR
