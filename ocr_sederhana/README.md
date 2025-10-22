@@ -419,12 +419,17 @@ https://github.com/user-attachments/assets/92d0c2dd-0215-402d-a1d6-bb16fa906645
 **Soal 3:	Implementasi Plugin Text-to-Speech (TTS) (30 Poin)**
 - **1.Instalasi Plugin (5 Poin):**
 
-  ![UTS](images/UTS_6.jpg)
+  ![UTS](images/UTS_6.png)
 
 - **2.Konversi Widget dan Inisialisasi (10 Poin)**
 
-  ![UTS](images/UTS_7.jpg)
+  ![UTS](images/UTS_7.png)
 
 - **3.Fungsionalitas Pembacaan (15 Poin)**
 
   ![UTS](images/UTS_8.jpg)
+
+- Run
+  
+  https://github.com/user-attachments/assets/70fe0173-4d1f-4c94-a855-cc2a85a43c33
+  
