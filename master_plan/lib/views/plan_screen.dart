@@ -32,7 +32,9 @@ class _PlanScreenState extends State<PlanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // ganti ‘Namaku' dengan Nama panggilan Anda
-      appBar: AppBar(title: const Text('Master Plan Karina')),
+      appBar: AppBar(
+        title: const Text('Master Plan Karina'),
+        backgroundColor: Colors.purple, ),
       body: _buildList(),
       floatingActionButton: _buildAddTaskButton(),
     );
