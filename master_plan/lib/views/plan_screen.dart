@@ -14,6 +14,15 @@ class _PlanScreenState extends State<PlanScreen> {
   late ScrollController scrollController;
 
   @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController()
+      ..addListener(() {
+        FocusScope.of(context).requestFocus(FocusNode());
+      });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // ganti ‘Namaku' dengan Nama panggilan Anda
