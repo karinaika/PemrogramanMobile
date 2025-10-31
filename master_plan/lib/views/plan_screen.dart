@@ -9,16 +9,6 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  Plan plan = Plan(
-    name: 'Master Plan Karina',
-    tasks: const [
-      Task(description: 'Learn Dart', complete: true),
-      Task(description: 'Conquer the Widget Tree', complete: true),
-      Task(description: 'Create Stateful Widgets', complete: true),
-      Task(description: 'Separate Models and View', complete: true),
-      Task(description: 'Try to take over the world', complete: false),
-    ],
-  );
 
   late ScrollController scrollController;
 
