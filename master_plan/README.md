@@ -120,3 +120,73 @@ Langkah 13 – dispose()
 - Dipanggil saat widget dihapus dari tree (misalnya berpindah halaman).
 - Digunakan untuk membersihkan resource yang digunakan controller, mencegah memory leak.
 - Ini bagian penting dari siklus hidup (lifecycle) widget StatefulWidget.
+
+---
+
+### Praktikum 2: : Mengelola Data Layer dengan InheritedWidget dan InheritedNotifier
+- Langkah 1: Buat file plan_provider.dart
+
+  ![new_flutter](images/P2langkah1.png)
+
+- Langkah 2: Edit main.dart
+
+  ![new_flutter](images/P2langkah2.png)
+
+- Langkah 3: Tambah method pada model plan.dart
+
+  ![new_flutter](images/P2langkah3.png)
+
+- Langkah 4: Pindah ke PlanScreen
+
+  ![new_flutter](images/P2langkah4.png)
+
+- Langkah 5: Edit method _buildAddTaskButton
+
+  ![new_flutter](images/P2langkah5.png)
+
+- Langkah 6: Edit method _buildTaskTile
+
+  ![new_flutter](images/P2langkah6.png)
+
+- Langkah 7: Edit _buildList
+
+  ![new_flutter](images/P2langkah7.png)
+
+- Langkah 8: Tetap di class PlanScreen
+
+  ![new_flutter](images/P2langkah8.png)
+
+- Langkah 9: Tambah widget SafeArea
+
+  ![new_flutter](images/P2langkah9.png)
+
+- Run
+
+  ![new_flutter](images/P2run.png)
+
+---
+
+### Tugas Praktikum 2: InheritedWidget
+**1. Jelaskan mana yang dimaksud InheritedWidget pada langkah 1 tersebut! Mengapa yang digunakan InheritedNotifier?**
+
+Jawab: Pada langkah 1, kita membuat class PlanProvider yang extends dari InheritedNotifier<ValueNotifier<Plan>>. Karena kita ingin agar UI bisa langsung ter-update otomatis ketika data berubah.
+
+InheritedWidget = mewariskan data secara statis.
+InheritedNotifier = mewariskan data dan memantau perubahan data agar UI otomatis update.
+
+**2. Jelaskan maksud dari method di langkah 3 pada praktikum tersebut! Mengapa dilakukan demikian?**
+
+Jawab:
+
+- completedCount menghitung jumlah task yang sudah selesai (complete = true).
+- completenessMessage membuat pesan progress yang menampilkan berapa banyak tugas selesai dari total tugas.
+
+Supaya kita bisa menampilkan progress pekerjaan secara dinamis di UI.
+
+**3. Lakukan capture hasil dari Langkah 9 berupa GIF, kemudian jelaskan apa yang telah Anda buat!**
+
+Jawab:
+
+- Tampilan akhir menggunakan InheritedNotifier melalui PlanProvider agar data Plan bisa diakses dan dipantau dari seluruh widget di bawahnya.
+- ValueListenableBuilder digunakan agar widget dapat mendengarkan perubahan dari PlanProvider dan membangun ulang tampilan UI otomatis setiap kali data berubah.
+- SafeArea digunakan agar teks progress di bagian bawah tidak tertutup area sistem (seperti navigation bar).
