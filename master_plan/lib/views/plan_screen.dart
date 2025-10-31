@@ -30,7 +30,8 @@ class _PlanScreenState extends State<PlanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Master Plan')),
+      appBar: AppBar(title: const Text('Master Plan'),
+      backgroundColor: Colors.purple,),
       body: ValueListenableBuilder<Plan>(
         valueListenable: PlanProvider.of(context),
         builder: (context, plan, child) {
@@ -49,6 +50,7 @@ class _PlanScreenState extends State<PlanScreen> {
   Widget _buildAddTaskButton(BuildContext context) {
     ValueNotifier<Plan> planNotifier = PlanProvider.of(context);
     return FloatingActionButton(
+      backgroundColor: Colors.purple.shade200,
       child: const Icon(Icons.add),
       onPressed: () {
         Plan currentPlan = planNotifier.value;
