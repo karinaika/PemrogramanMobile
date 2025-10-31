@@ -1,5 +1,6 @@
 import '../models/data_layer.dart';
 import 'package:flutter/material.dart';
+import '../provider/plan_provider.dart';
 
 class PlanScreen extends StatefulWidget {
   const PlanScreen({super.key});
@@ -9,7 +10,6 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-
   late ScrollController scrollController;
 
   @override
@@ -39,18 +39,16 @@ class _PlanScreenState extends State<PlanScreen> {
     );
   }
 
-  Widget _buildAddTaskButton() {
+  Widget _buildAddTaskButton(BuildContext context) {
+    ValueNotifier<Plan> planNotifier = PlanProvider.of(context);
     return FloatingActionButton(
-      backgroundColor: Colors.purple.shade200,
       child: const Icon(Icons.add),
       onPressed: () {
-        setState(() {
-          plan = Plan(
-            name: plan.name,
-            tasks: List<Task>.from(plan.tasks)
-              ..add(const Task(description: '')),
-          );
-        });
+        Plan currentPlan = planNotifier.value;
+        planNotifier.value = Plan(
+          name: currentPlan.name,
+          tasks: List<Task>.from(currentPlan.tasks)..add(const Task()),
+        );
       },
     );
   }
@@ -58,13 +56,11 @@ class _PlanScreenState extends State<PlanScreen> {
   Widget _buildList() {
     return ListView.builder(
       controller: scrollController,
-      keyboardDismissBehavior:
-          Theme.of(context).platform == TargetPlatform.iOS
-              ? ScrollViewKeyboardDismissBehavior.onDrag
-              : ScrollViewKeyboardDismissBehavior.manual,
+      keyboardDismissBehavior: Theme.of(context).platform == TargetPlatform.iOS
+          ? ScrollViewKeyboardDismissBehavior.onDrag
+          : ScrollViewKeyboardDismissBehavior.manual,
       itemCount: plan.tasks.length,
-      itemBuilder: (context, index) =>
-          _buildTaskTile(plan.tasks[index], index),
+      itemBuilder: (context, index) => _buildTaskTile(plan.tasks[index], index),
     );
   }
 
@@ -92,10 +88,7 @@ class _PlanScreenState extends State<PlanScreen> {
             plan = Plan(
               name: plan.name,
               tasks: List<Task>.from(plan.tasks)
-                ..[index] = Task(
-                  description: text,
-                  complete: task.complete,
-                ),
+                ..[index] = Task(description: text, complete: task.complete),
             );
           });
         },
