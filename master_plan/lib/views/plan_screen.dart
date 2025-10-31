@@ -29,13 +29,25 @@ class _PlanScreenState extends State<PlanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Ambil data dari provider
+    ValueNotifier<Plan> planNotifier = PlanProvider.of(context);
+    Plan plan = planNotifier.value;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Master Plan'),
         backgroundColor: Colors.purple,
       ),
-      body: _buildList(),
-      floatingActionButton: _buildAddTaskButton(),
+      // Bungkus list dalam Column + Expanded
+      body: Column(
+        children: [
+          Expanded(child: _buildList(plan)),
+
+          // (Langkah 9 nanti akan menambahkan SafeArea di sini)
+          Text(plan.completenessMessage),
+        ],
+      ),
+      floatingActionButton: _buildAddTaskButton(context),
     );
   }
 
