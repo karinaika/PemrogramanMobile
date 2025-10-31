@@ -9,7 +9,16 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  Plan plan = const Plan();
+  Plan plan = Plan(
+    name: 'Master Plan Karina',
+    tasks: const [
+      Task(description: 'Learn Dart', complete: true),
+      Task(description: 'Conquer the Widget Tree', complete: true),
+      Task(description: 'Create Stateful Widgets', complete: true),
+      Task(description: 'Separate Models and View', complete: true),
+      Task(description: 'Try to take over the world', complete: false),
+    ],
+  );
 
   late ScrollController scrollController;
 
@@ -31,10 +40,10 @@ class _PlanScreenState extends State<PlanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ganti ‘Namaku' dengan Nama panggilan Anda
       appBar: AppBar(
-        title: const Text('Master Plan Karina'),
-        backgroundColor: Colors.purple, ),
+        title: const Text('Master Plan'),
+        backgroundColor: Colors.purple,
+      ),
       body: _buildList(),
       floatingActionButton: _buildAddTaskButton(),
     );
@@ -42,13 +51,14 @@ class _PlanScreenState extends State<PlanScreen> {
 
   Widget _buildAddTaskButton() {
     return FloatingActionButton(
+      backgroundColor: Colors.purple.shade200,
       child: const Icon(Icons.add),
       onPressed: () {
         setState(() {
           plan = Plan(
             name: plan.name,
             tasks: List<Task>.from(plan.tasks)
-              ..add(const Task()),
+              ..add(const Task(description: '')),
           );
         });
       },
@@ -105,5 +115,5 @@ class _PlanScreenState extends State<PlanScreen> {
         ),
       ),
     );
-  } 
+  }
 }
