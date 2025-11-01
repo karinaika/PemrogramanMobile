@@ -220,7 +220,7 @@ Jawab:
 
 - Langkah 7: Widget build
 
-  ![new_flutter](images/P3langka73.png)
+  ![new_flutter](images/P3langkah7.png)
 
 - Langkah 8: Edit _buildTaskTile
 
