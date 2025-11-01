@@ -31,6 +31,23 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
     super.dispose();
   }
 
-  Widget _buildListCreator() => const SizedBox();
+  Widget _buildListCreator() {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Material(
+        color: Theme.of(context).cardColor,
+        elevation: 10,
+        child: TextField(
+          controller: textController,
+          decoration: const InputDecoration(
+            labelText: 'Add a plan',
+            contentPadding: EdgeInsets.all(20),
+          ),
+          onEditingComplete: addPlan,
+        ),
+      ),
+    );
+  }
+
   Widget _buildMasterPlans() => const SizedBox();
 }
