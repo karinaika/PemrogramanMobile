@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../models/data_layer.dart';
+import '../provider/plan_provider.dart';
+import 'plan_screen.dart';
 
 class PlanCreatorScreen extends StatefulWidget {
   const PlanCreatorScreen({super.key});
@@ -65,5 +68,37 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
     setState(() {});
   }
 
-  Widget _buildMasterPlans() => const SizedBox();
+  Widget _buildMasterPlans() {
+    ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
+    List<Plan> plans = planNotifier.value;
+
+    if (plans.isEmpty) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Icon(Icons.note, size: 100, color: Colors.grey),
+          Text(
+            'Anda belum memiliki rencana apapun.',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ],
+      );
+    }
+
+    return ListView.builder(
+      itemCount: plans.length,
+      itemBuilder: (context, index) {
+        final plan = plans[index];
+        return ListTile(
+          title: Text(plan.name),
+          subtitle: Text(plan.completenessMessage),
+          onTap: () {
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => PlanScreen(plan: plan)));
+          },
+        );
+      },
+    );
+  }
 }
