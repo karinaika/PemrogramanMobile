@@ -190,3 +190,71 @@ Jawab:
 - Tampilan akhir menggunakan InheritedNotifier melalui PlanProvider agar data Plan bisa diakses dan dipantau dari seluruh widget di bawahnya.
 - ValueListenableBuilder digunakan agar widget dapat mendengarkan perubahan dari PlanProvider dan membangun ulang tampilan UI otomatis setiap kali data berubah.
 - SafeArea digunakan agar teks progress di bagian bawah tidak tertutup area sistem (seperti navigation bar).
+
+---
+
+### Praktikum 3: Membuat State di Multiple Screens
+- Langkah 1: Edit PlanProvider
+
+  ![new_flutter](images/P3langkah1.png)
+
+- Langkah 2: Edit PlanProvider
+
+  ![new_flutter](images/P3langkah2.png)
+
+- Langkah 3: Edit plan_screen.dart
+
+  ![new_flutter](images/P3langkah3.png)
+
+- Langkah 4: Error
+
+  ![new_flutter](images/P3langkah4.png)
+
+- Langkah 5: Tambah getter Plan
+
+  ![new_flutter](images/P3langkah5.png)
+
+- Langkah 6 : Method initState()
+
+  ![new_flutter](images/P3langkah6.png)
+
+- Langkah 7: Widget build
+
+  ![new_flutter](images/P3langka73.png)
+
+- Langkah 8: Edit _buildTaskTile
+
+  ![new_flutter](images/P3langkah8.png)
+
+- Langkah 9: Buat screen baru
+
+  ![new_flutter](images/P3langkah9.png)
+  
+  ![new_flutter](images/P3langkah9_1.png)
+
+- Langkah 10: Pindah ke class _PlanCreatorScreenState
+
+  ![new_flutter](images/P3langkah10.png)
+
+- Langkah 11: Pindah ke method build
+
+  ![new_flutter](images/P3langkah11.png)
+
+- Langkah 12: Buat widget _buildListCreator
+
+  ![new_flutter](images/P3langkah12.png)
+
+- Langkah 13: Buat void addPlan()
+
+  ![new_flutter](images/P3langkah13.png)
+
+- Langkah 14 : Buat widget _buildMasterPlans()
+
+  ![new_flutter](images/P3langkah14.png)
+
+- Run
+
+  
+
+---
+
