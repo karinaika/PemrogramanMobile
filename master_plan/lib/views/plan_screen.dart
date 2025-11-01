@@ -31,16 +31,27 @@ class _PlanScreenState extends State<PlanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<List<Plan>> plansNotifier = PlanProvider.of(context);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Master Plan'),
-      backgroundColor: Colors.purple,),
-      body: ValueListenableBuilder<Plan>(
-        valueListenable: PlanProvider.of(context),
-        builder: (context, plan, child) {
+      appBar: AppBar(
+        title: Text(plan.name),
+        backgroundColor: Colors.purple,
+      ),
+      body: ValueListenableBuilder<List<Plan>>(
+        valueListenable: plansNotifier,
+        builder: (context, plans, child) {
+          Plan currentPlan = plans.firstWhere((p) => p.name == plan.name);
+
           return Column(
             children: [
-              Expanded(child: _buildList(plan)),
-              SafeArea(child: Text(plan.completenessMessage)),
+              Expanded(child: _buildList(currentPlan)),
+              SafeArea(
+                child: Text(
+                  currentPlan.completenessMessage,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           );
         },
@@ -50,16 +61,24 @@ class _PlanScreenState extends State<PlanScreen> {
   }
 
   Widget _buildAddTaskButton(BuildContext context) {
-    ValueNotifier<Plan> planNotifier = PlanProvider.of(context);
+    ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
     return FloatingActionButton(
       backgroundColor: Colors.purple.shade200,
       child: const Icon(Icons.add),
       onPressed: () {
-        Plan currentPlan = planNotifier.value;
-        planNotifier.value = Plan(
-          name: currentPlan.name,
-          tasks: List<Task>.from(currentPlan.tasks)..add(const Task()),
-        );
+        Plan currentPlan = plan;
+        int planIndex =
+            planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+        List<Task> updatedTasks = List<Task>.from(currentPlan.tasks)
+          ..add(const Task());
+        planNotifier.value = List<Plan>.from(planNotifier.value)
+          ..[planIndex] = Plan(
+            name: currentPlan.name,
+            tasks: updatedTasks,
+          );
+        setState(() {
+          widget.plan.tasks.add(const Task());
+        });
       },
     );
   }
