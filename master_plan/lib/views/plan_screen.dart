@@ -18,9 +18,9 @@ class _PlanScreenState extends State<PlanScreen> {
   void initState() {
     super.initState();
     scrollController = ScrollController()
-      ..addListener(() {
-        FocusScope.of(context).requestFocus(FocusNode());
-      });
+    ..addListener(() {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
   }
 
   @override
