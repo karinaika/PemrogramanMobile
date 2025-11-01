@@ -49,5 +49,21 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
     );
   }
 
+  void addPlan() {
+    final text = textController.text;
+    if (text.isEmpty) {
+      return;
+    }
+
+    final plan = Plan(name: text, tasks: []);
+    ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
+
+    planNotifier.value = List<Plan>.from(planNotifier.value)..add(plan);
+
+    textController.clear();
+    FocusScope.of(context).requestFocus(FocusNode());
+    setState(() {});
+  }
+
   Widget _buildMasterPlans() => const SizedBox();
 }
