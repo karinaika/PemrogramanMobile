@@ -254,7 +254,22 @@ Jawab:
 
 - Run
 
-  
+  ![Demo Master Plan](images/demo.gif)
 
 ---
 
+### Tugas Praktikum 3: State di Multiple Screens
+**1. Berdasarkan Praktikum 3 yang telah Anda lakukan, jelaskan maksud dari gambar diagram berikut ini!**
+  ![new_flutter](images/P3soal.png)
+
+Jawab: Gambar tersebut menjelaskan alur navigasi dan hubungan antar layar pada aplikasi Master Plan. 
+
+Di sisi kiri, halaman PlanCreatorScreen digunakan untuk membuat dan menampilkan daftar rencana yang telah dibuat, berisi komponen seperti TextField untuk menambah rencana baru dan ListView untuk menampilkan daftar rencana. 
+
+Ketika pengguna memilih salah satu rencana, proses Navigator Push dijalankan untuk berpindah ke halaman PlanScreen di sisi kanan. Pada halaman ini, pengguna dapat melihat dan mengelola daftar tugas di dalam rencana tersebut, yang ditampilkan menggunakan ListView dan SafeArea di bagian bawah untuk menampilkan progres penyelesaian tugas. 
+
+Data antar layar tetap konsisten karena dikelola menggunakan PlanProvider sebagai state management-nya.
+
+**2.	Lakukan capture hasil dari Langkah 14 berupa GIF, kemudian jelaskan apa yang telah Anda buat!**
+
+Jawab: Saya menjalankan aplikasi Master Plan dan menambahkan tiga rencana: Try to take over the world, Invent New Form of Cheese, dan Learn Flutter. Pada rencana Learn Flutter, saya membuat dua tugas (Flutter dan Dart), lalu menandai Dart sebagai selesai. Hasilnya, aplikasi menampilkan progres 1 dari 2 tugas telah diselesaikan.
